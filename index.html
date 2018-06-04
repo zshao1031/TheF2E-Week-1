@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<!--========================-->
+	<!--※※【網頁顯示資訊設定】※※-->	
+	<!--========================-->
+	
+	<!--使用編碼-->
+	<meta charset="UTF-8">
+	
+	<!--頁籤設定-->
+	<title>TheF2E Week1: ToDoList</title>
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<!--把螢幕解析度的寬度變成載具的寬度(RWD用)-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--網站描述與關鍵字設定-->
+	<meta name="description" content="此網站為書豪參加TheF2E的第一週作品">
+	<meta name="keywords" content="TheF2E, Week1, todolist">
+
+	<!--網站貼在Facebook上時顯示的資訊-->
+	<meta property="og:title" content="TheF2E Week1: ToDoList">
+	<meta property="og:description" content="此網站為書豪參加TheF2E的第一週作品">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="img/TheF2E.jpg">
+
+	<!--IE相容性設定-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+	<!--載入Font Awesome的Icons-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+	<!--載入CSS-->
+	<link rel="stylesheet" href="css/all.css">
+
+	<!--載入jQuery-->	
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body>
+	<!--建立網頁容器-->
+	<div class="wrap">
+		<!--========================-->
+		<!--表頭區塊-->
+		<div class="header">
+			<!--主選單-->
+			<ul class="mainMenu">
+				<li id="myTasksBtn" class="usingPage"><h2>My Tasks</h2></li>
+				<li id="inProgressBtn" class="doesNotUsingPage"><h2>In Progress</h2></li>
+				<li id="completedBtn" class="doesNotUsingPage"><h2>Completed</h2></li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		
+		<!--========================-->
+		<!--內容區塊-->
+		<div class="content">
+			
+			<!--新增任務按鈕-->
+			<div class="addTaskBtn">
+				<i class="fas fa-plus"></i>
+				<span>Add Task</span>
+			</div>
+	
+			<!--新增任務區塊-->
+			<div class="addTaskBox">
+								
+
+			</div>
+
+			<!--既有任務區塊-->
+			<div class="taskBox sticky">
+				<!--任務標題-->
+
+				<!--任務內容(簡易版)-->
+
+				<!--任務內容(完整版)-->
+
+			</div>
+			<div class="taskBox sticky"></div>
+			<div class="taskBox normal"></div>
+			<div class="taskBox normal"></div>
+			<div class="taskBox completed"></div>
+
+		</div>
+		
+		<!--========================-->
+		<!--網頁表尾區塊-->
+		<div class="footer">
+			<p>4 tasks left</p>
+		</div>
+
+	</div>
+
+	<!--========================-->
+	<!--載入javaScript-->	
+	<script src="js/all.js"></script>
+
+</body>
+	
+</html>

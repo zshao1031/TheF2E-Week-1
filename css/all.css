@@ -1,0 +1,189 @@
+/*【CSS Reset】*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*=============【CSS Reset結束】=============*/
+/*【通用設定】*/
+
+/*使padding與border不會增加總寬度*/
+*,*:before,*:after{
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+/*使img圖片都自適應大小*/
+img{
+	max-width: 100%;
+	height:auto;
+}
+
+/*=============【通用設定】結束==============*/
+
+/*【Wrap網頁容器設定】*/
+.wrap{
+	max-width: 1000px;
+	min-height: 100vh;
+	margin: 0 auto;
+	font-family: Microsoft JhengHei;
+	background-color: #E1E1E1;
+}
+
+.clearfix{
+	clear: both;
+}
+
+/***********************************/
+/************【表頭區塊】*************/
+/*********************************/
+
+.header{
+	background: #4A90E2;
+}
+
+/*【主選單】*/
+
+.mainMenu{
+	margin: 0 17.75% 0 17.75%;
+}
+
+.mainMenu li{
+	display: block;
+	text-decoration:none;
+	width: 33.333%;
+	float: left;
+	font-family: Roboto-Regular;
+	color: #00408B;
+	text-align: center;
+	font-size: 1.5rem;
+	padding-top: 1.625rem;
+	padding-bottom: 1.625rem;
+	cursor: pointer;
+}
+
+.mainMenu .usingPage{
+	font-family: Roboto-Medium;
+	color: #FFFFFF;
+	padding-top: 1.5625rem;
+	padding-bottom: 1.375rem;
+	border-bottom: 0.3125rem solid #00408B;
+}
+
+.mainMenu .doesNotUsingPage:hover{
+	font-family: Roboto-Medium;
+	color: #FFFFFF;
+	background: #2D7CDD;
+	padding-top: 1.5625rem;
+	padding-bottom: 1.6875rem;
+}
+
+/***********************************/
+/************【內容區塊】*************/
+/*********************************/
+
+/*新增任務按鈕*/
+.addTaskBtn{
+	max-width: 60.5%;
+	margin: 0 auto;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	background: #FFFFFF;
+	border: 0.125rem solid #C8C8C8;
+	border-radius: 5px;
+	font-family: Roboto-Regular;
+	font-size: 1.5rem;
+	color: #C8C8C8;	
+}
+
+.addTaskBtn i{
+	font-size: 1.25rem;
+	padding-left: 2.0625rem;
+	padding-right: 0.875rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.3125rem;
+}
+
+/*任務格*/
+.taskBox{
+	max-width: 60.5%;
+	margin: 0 auto;
+	height: 6.375rem;
+	margin-bottom: 0.5rem;
+	background: #F2F2F2;
+	border-radius: 5px;
+}
+
+/*置頂任務格*/
+.sticky{
+	background: #FFF2DC;
+}
+
+/*已完成任務格*/
+.completed{
+	height: 4.75rem;
+}
+
+
+/***********************************/
+/************【表尾區塊】*************/
+/*********************************/
+
+/*顯示任務數*/
+.footer{
+	max-width: 60.5%;
+	margin: 0 auto;
+}
+
+.footer p{
+	font-family: Roboto-Italic;
+	font-size: 1.5rem;
+	color: #C8C8C8;
+	margin-left: 2.0625rem;
+	font-style: italic;
+	padding-bottom: 1rem;
+}
+
