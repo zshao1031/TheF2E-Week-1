@@ -68,9 +68,61 @@
 			</div>
 	
 			<!--新增任務區塊-->
-			<!--<div class="addTaskBox"></div>-->
-			
+			<div id="addNewTask" class="oneTask" style="display: none;">
+				<div class="taskPanel">
+					<!--任務面板-->
+					<label class="completedSetting completedSettingDisable" title="任務完成/未完成"></label>	
+					<input type="text" class="titleEdit" placeholder="Type Something Here...">
+					<div class="settingButtonBox">
+						<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
+						<label for="task1-StickyCheckBox"><i class="stickySetting far fa-star" disabled="disabled" title="置頂/一般排序"></i></label>
+						<input id="task1-EditingCheckBox" type="checkbox" style="display: none;">
+						<label for="task1-EditingCheckBox"><i class="editSetting fas fa-pencil-alt editSettingDisable" title="編輯內容/結束編輯"></i></label>
+					</div>
+					<div class="clearfix"></div>						
+				</div>
+				<!--任務內容編輯視窗-->
+				<div class="taskEdit">
+					<div class="deadLineEditBox">
+						<i class="deadLineMark-Edit far fa-calendar-alt"></i>
+						<h3 class="deadLineTitle-Edit">Deadline</h3>
+						<div class="clearfix"></div>
+						<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd">
+						<input type="time" class="deadLineText-Time" placeholder="hh:mm">
+						<div class="clearfix"></div>
+					</div>
+					<div class="fileEditBox">
+						<i class="taskFileMark-Edit far fa-file"></i>
+						<h3 class="taskFileTitle-Edit">File</h3>
+						<div class="clearfix"></div>
+						<ul class="updateFileBox">
+							<li class="updateFileName"></li>
+							<li class="updateFileTime"></li>
+						</ul>
+						<div class="addFileButton">＋</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="commentEditBox">
+						<i class="taskCommentMark-Edit far fa-comment-dots"></i>
+						<h3 class="taskCommentTitle-Edit">Comment</h3>
+						<div class="clearfix"></div>
+						<textarea class="commentTextarea" placeholder="Type your memo here…"></textarea>
+					</div>
+					<ul class="taskEditButtonBox">
+						<li class="cancelButton">
+							<i class="fas fa-times"></i>
+							<p>Cancel</p>
+						</li>
+						<li class="saveButton">
+							<i class="fas fa-plus"></i>
+							<p>Add Task</p>
+						</li>
+						<div class="clearfix"></div>
+					</ul>
+				</div>
+			</div>
 
+			<!--=============================================-->
 			<!--任務列表-->
 			<ul id="taskList">
 				<!--第１個任務-->
@@ -80,7 +132,7 @@
 						<input id="task1-CompletedCheckBox" type="checkbox" style="display: none;">
 						<label for="task1-CompletedCheckBox" class="completedSetting" title="任務完成/未完成"></label>	
 						<h3 class="taskTitle" >Type Something Here...</h3>
-						<input type="text" class="titleEdit" value="Type Something Here..." style="display: none;">
+						<input type="text" class="titleEdit" placeholder="Type Something Here..." value="Type Something Here..." style="display: none;">
 						<div class="settingButtonBox">
 							<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
 							<label for="task1-StickyCheckBox"><i class="stickySetting far fa-star" disabled="disabled" title="置頂/一般排序"></i></label>

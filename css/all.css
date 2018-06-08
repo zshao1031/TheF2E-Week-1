@@ -56,6 +56,11 @@ table {
 	        box-sizing: border-box;
 }
 
+::-webkit-input-placeholder {color: #C8C8C8;}
+:-moz-placeholder {color: #C8C8C8;}
+::-moz-placeholder {color: #C8C8C8;}
+:-ms-input-placeholder {color: #C8C8C8;}
+
 
 /*=============【通用設定】結束==============*/
 
@@ -123,11 +128,14 @@ table {
 /************【內容區塊】*************/
 /*********************************/
 
+.wrap .content{
+	padding-top: 1.5rem;
+}
+
 /*叫出「新增任務」介面的按鈕*/
 .addTaskBtn{
 	width: 60.5%;
 	margin: 0 auto;
-	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 	background: #FFFFFF;
 	border: 0.125rem solid #C8C8C8;
@@ -190,7 +198,21 @@ table {
 
 .taskPanel .completedSetting:hover{
 	border: 1px solid #18e1af;
+	border-radius: 3px;
 }
+
+/*完成任務的按鈕被禁用時*/
+.taskPanel .completedSetting.completedSettingDisable{
+	cursor: not-allowed;
+	background-image: url();
+	background-color: #C8C8C8;
+}
+
+.taskPanel .completedSetting.completedSettingDisable:hover{
+	border: none;
+}
+
+
 
 /*任務標題*/
 .taskPanel .taskTitle{
@@ -212,7 +234,7 @@ table {
 	font-size: 1.25rem;
 	font-weight: 1.5rem;
 	font-family: Roboto-Medium;
-	border: none;
+	border: 1px solid #FFFFFF;
 }
 
 .taskPanel .titleEdit:hover{
@@ -376,6 +398,7 @@ table {
 	font-size: 1rem;
 	line-height: 1.1875rem;
 	font-family: Roboto-Regular;
+	border: 1px solid #FFFFFF;
 }
 
 .taskEdit .deadLineEditBox .deadLineText-Date:hover{
@@ -392,6 +415,7 @@ table {
 	font-size: 1rem;
 	line-height: 1.1875rem;
 	font-family: Roboto-Regular;
+	border: 1px solid #FFFFFF;
 }
 
 .taskEdit .deadLineEditBox .deadLineText-Time:hover{
@@ -492,6 +516,7 @@ table {
 	font-size: 1rem;
 	line-height: 1.5rem;
 	font-family: Roboto-Regular;
+	border: 1px solid #FFFFFF;
 
 }
 .taskEdit .commentEditBox .commentTextarea:hover{
@@ -517,10 +542,10 @@ table {
 	background: #FFFFFF;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	padding-left: 6.70625rem;
 	color: #D0021B;
 	border-radius: 0px 0px 0px 5px;
 	cursor: pointer;
+	text-align: center;
 }
 
 .taskEdit .taskEditButtonBox .cancelButton:hover{
@@ -528,13 +553,13 @@ table {
 }
 
 .taskEdit .taskEditButtonBox .cancelButton i{
-	float: left;
+	display: inline;
 	font-size: 1.5rem;
 	line-height: 1.75rem;
 }
 
 .taskEdit .taskEditButtonBox .cancelButton p{
-	float: left;
+	display: inline;
 	margin-left: 0.86875rem;
 	font-family: Roboto-Regular;
 	font-size: 1.5rem;
@@ -548,10 +573,10 @@ table {
 	background: #4A90E2;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	padding-left: 6.70625rem;
 	color: #FFFFFF;
 	border-radius: 0px 0px 5px 0px;
 	cursor: pointer;
+	text-align: center;
 }
 
 .taskEdit .taskEditButtonBox .saveButton:hover{
@@ -559,13 +584,13 @@ table {
 }
 
 .taskEdit .taskEditButtonBox .saveButton i{
-	float: left;
+	display: inline;
 	font-size: 1.5rem;
 	line-height: 1.75rem;
 }
 
 .taskEdit .taskEditButtonBox .saveButton p{
-	float: left;
+	display: inline;
 	margin-left: 1rem;
 	font-family: Roboto-Regular;
 	font-size: 1.5rem;

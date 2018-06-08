@@ -12,14 +12,14 @@ $(document).ready(function() {
 	});
 
 	$('#inProgressBtn').click(function(event) {
-		changeUsingPage('#myTasksBtn');
+		changeUsingPage('#inProgressBtn');
 		$('.oneTask.taskBoxNotCompleted').slideDown(slideTime);
 		$('.oneTask.taskBoxCompleted').slideUp(slideTime);
 		$('.footer p').text('4 tasks left');
 	});
 
 	$('#completedBtn').click(function(event) {
-		changeUsingPage('#myTasksBtn');
+		changeUsingPage('#completedBtn');
 		$('.oneTask.taskBoxNotCompleted').slideUp(slideTime);
 		$('.oneTask.taskBoxCompleted').slideDown(slideTime);
 		$('.footer p').text('1 task completed');
@@ -34,15 +34,43 @@ $(document).ready(function() {
 		$('#completedBtn').removeClass('usingPage');
 		$('#completedBtn').addClass('doesNotUsingPage');
 
+		$('.addTaskBtn').slideDown(slideTime);
+		$('#addNewTask').slideUp(slideTime);
+
 		$(usingPage).removeClass('doesNotUsingPage');
 		$(usingPage).addClass('usingPage');	
 	}
 	//*****************************************************
 	//按下「新增任務按鈕」
 	$('.addTaskBtn').click(function(event) {
-		
+		$('.addTaskBtn').slideUp(slideTime);
+		$('#addNewTask').slideDown(slideTime);
 	});
 	
+	//按下新增任務裡的「Cancel」按鈕
+	$('#addNewTask .cancelButton').click(function(event) {
+		$('.addTaskBtn').slideDown(slideTime);
+		$('#addNewTask').slideUp(slideTime);
+		cleaningTaskBox('#addNewTask');
+	});
+
+	//按下新增任務裡的「Add Task」按鈕
+	$('#addNewTask .saveButton').click(function(event) {
+		$('.addTaskBtn').slideDown(slideTime);
+		$('#addNewTask').slideUp(slideTime);
+		cleaningTaskBox('#addNewTask');
+	});
+
+	//將新增任務裡的欄位清空
+	function cleaningTaskBox(thisTask) {
+		$(thisTask + ' .taskPanel .settingButtonBox .stickySetting').addClass('far');
+		$(thisTask + ' .taskPanel .settingButtonBox .stickySetting').removeClass('fas');
+		$(thisTask).removeClass('taskBoxSticky');
+		$(thisTask + ' .taskPanel .titleEdit').val('');
+		$(thisTask + ' .taskEdit .deadLineText-Date').val('');
+		$(thisTask + ' .taskEdit .deadLineText-Time').val('');
+		$(thisTask + ' .taskEdit .commentTextarea').val('');
+	}
 
 	//*****************************************************
 	//按下「完成任務按鈕」
@@ -90,6 +118,7 @@ $(document).ready(function() {
 
 	//*****************************************************
 	//按下「切換置頂」按鈕
+	$('#addNewTask .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#addNewTask');});
 	$('#task1 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task1');});
 	$('#task2 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task2');});
 	$('#task3 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task3');});
