@@ -56,11 +56,6 @@ table {
 	        box-sizing: border-box;
 }
 
-/*使img圖片都自適應大小*/
-img{
-	max-width: 100%;
-	height:auto;
-}
 
 /*=============【通用設定】結束==============*/
 
@@ -91,6 +86,7 @@ img{
 	margin: 0 17.75% 0 17.75%;
 }
 
+/*按鈕基本樣式*/
 .mainMenu li{
 	display: block;
 	text-decoration:none;
@@ -105,6 +101,7 @@ img{
 	cursor: pointer;
 }
 
+/*使用中的頁面的按鈕*/
 .mainMenu .usingPage{
 	font-family: Roboto-Medium;
 	color: #FFFFFF;
@@ -113,6 +110,7 @@ img{
 	border-bottom: 0.3125rem solid #00408B;
 }
 
+/*非使用中的頁面的按鈕:滑鼠移上的效果*/
 .mainMenu .doesNotUsingPage:hover{
 	font-family: Roboto-Medium;
 	color: #FFFFFF;
@@ -125,9 +123,9 @@ img{
 /************【內容區塊】*************/
 /*********************************/
 
-/*新增任務按鈕*/
+/*叫出「新增任務」介面的按鈕*/
 .addTaskBtn{
-	max-width: 60.5%;
+	width: 60.5%;
 	margin: 0 auto;
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
@@ -136,9 +134,18 @@ img{
 	border-radius: 5px;
 	font-family: Roboto-Regular;
 	font-size: 1.5rem;
-	color: #C8C8C8;	
+	line-height: 1.75rem;
+	color: #C8C8C8;
+	cursor: pointer;
 }
 
+.addTaskBtn:hover{
+	background: #F9C771;
+	color: #ffffff;
+	border: 0.125rem solid #F9F49D;
+}
+
+/*按鈕上那個「＋」的樣式*/
 .addTaskBtn i{
 	font-size: 1.25rem;
 	padding-left: 2.0625rem;
@@ -147,24 +154,460 @@ img{
 	padding-bottom: 1.3125rem;
 }
 
-/*任務格*/
-.taskBox{
-	max-width: 60.5%;
+/***********************************/
+
+/*管理一整組任務格*/
+.oneTask{
+	width: 60.5%;
 	margin: 0 auto;
-	height: 6.375rem;
 	margin-bottom: 0.5rem;
-	background: #F2F2F2;
-	border-radius: 5px;
 }
 
-/*置頂任務格*/
-.sticky{
+/*【任務格-主要顯示介面】*/
+.taskPanel{
+	background: #F2F2F2;
+	border-radius: 5px;
+	padding-top: 1.5rem;
+	padding-bottom: 1rem;
+}
+
+
+/***********************************/
+
+/*【主要顯示介面】的控制介面*/
+
+/*按鈕:任務是否完成*/
+.taskPanel .completedSetting{
+	float: left;
+	margin-left: 2rem;	
+	margin-bottom: 0.75rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: none;
+	cursor: pointer;
+	background-image: url(../img/checkbox-false.png);
+}
+
+.taskPanel .completedSetting:hover{
+	border: 1px solid #18e1af;
+}
+
+/*任務標題*/
+.taskPanel .taskTitle{
+	float: left;
+	margin-left: 1rem;
+	width: 60%;
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 1.75rem;
+	font-family: Roboto-Medium;
+}
+
+
+.taskPanel .titleEdit{
+	float: left;
+	margin-left:1rem;
+	width: 60%;
+	padding: 0.125rem 0.5rem 0.125rem 0.5rem;
+	font-size: 1.25rem;
+	font-weight: 1.5rem;
+	font-family: Roboto-Medium;
+	border: none;
+}
+
+.taskPanel .titleEdit:hover{
+	border: 1px solid #18e1af;
+}
+
+
+.taskPanel .settingButtonBox{
+	float: right;
+}
+
+/*按鈕:任務是否置頂*/
+.taskPanel .stickySetting{
+	float: left;
+	font-size: 1.5rem;
+	color: #000000;
+	cursor: pointer;
+}
+
+.taskPanel .fa-star.fas{
+	color: #F5A623;
+}
+
+.taskPanel .stickySetting:hover{
+	color: #18e1af;
+}
+
+/*置頂按鈕被禁用時*/
+.taskPanel .stickySetting.stickySettingDisable{
+	color: #9B9B9B;
+	cursor: not-allowed;
+}
+
+.taskPanel .stickySetting.stickySettingDisable:hover{
+	color: #9B9B9B;
+}
+
+
+/*按鈕:是否叫出編輯視窗*/
+.taskPanel .editSetting{
+	float: left;
+	margin-left: 2rem;
+	margin-right: 2rem;
+	font-size: 1.5rem;
+	color: #000000;
+	cursor: pointer;
+}
+
+.taskPanel .editSetting.openEditUI{
+	color: #4A90E2;
+}
+
+.taskPanel .editSetting:hover{
+	color: #18e1af;
+}
+
+/*編輯按鈕被禁用時*/
+.taskPanel .editSetting.editSettingDisable{
+	color: #9B9B9B;
+	cursor: not-allowed;
+}
+
+.taskPanel .editSetting.editSettingDisable:hover{
+	color: #9B9B9B;
+}
+
+/***********************************/
+
+/*【主要顯示介面】的任務內容顯示*/
+
+/*容器:可顯示or隱藏整組內容用*/
+.taskPanel .taskContent{
+	padding-top: 0.5rem;
+	padding-left: 4.5rem;
+}
+
+/*內容:deadline時間*/
+.taskPanel .deadLineBox{
+	float: left;
+	cursor: help;
+}
+
+.taskPanel .deadLineBox .deadLineMark{
+	float: left;
+	font-size: 1rem;
+	color: #757575;
+}
+
+.taskPanel .deadLineBox .deadLineContent{
+	float: left;
+	font-size: 1rem;
+	color: #757575;
+	margin-left: 0.5rem;
+	font-family: Roboto-Regular;
+}
+
+/*內容:任務上傳的檔案*/
+.taskPanel .taskFile{
+	float: left;
+	font-size: 1rem;
+	color: #757575;
+	margin-left: 1rem;
+	cursor: help;
+}
+
+/*內容:任務詳細註解*/
+.taskPanel .taskComment{
+	float: left;
+	font-size: 1rem;
+	color: #757575;
+	margin-left: 1rem;
+	cursor: help;
+}
+
+/***********************************/
+/*【任務格-內容編輯介面】*/
+.taskEdit{
+	display: block;
+	margin-top: 3px;
+	background: #F2F2F2;
+	
+	border-radius: 0px 0px 5px 5px;
+	box-shadow: 0px 3px 5px #d6d6d6;
+	margin-bottom: 1rem;
+	padding-top: 1.625rem;
+}
+/***********************************/
+
+/*【內容編輯介面】的內容顯示*/
+
+/*編輯:Deadline的介面*/
+.taskEdit .deadLineEditBox{
+	margin-left: 4.5rem;
+}
+
+.taskEdit .deadLineEditBox .deadLineMark-Edit{
+	float: left;
+	font-size: 1.06875rem;
+	line-height: 1.5rem;
+	color: #000000;
+}
+
+.taskEdit .deadLineEditBox .deadLineTitle-Edit{
+	float: left;
+	font-size: 1.25rem;
+	color: #000000;
+	margin-left: 0.5625rem;
+	font-family: Roboto-Medium;
+	font-weight: bold;
+	line-height: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.taskEdit .deadLineEditBox .deadLineText-Date{
+	float: left;
+	margin-left: 1.4375rem;
+	width: 35%;
+	border: none;
+	background: #FFFFFF;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	font-size: 1rem;
+	line-height: 1.1875rem;
+	font-family: Roboto-Regular;
+}
+
+.taskEdit .deadLineEditBox .deadLineText-Date:hover{
+	border: 1px solid #18e1af;
+}
+
+.taskEdit .deadLineEditBox .deadLineText-Time{
+	float: left;
+	margin-left: 0.5rem;
+	width: 35%;
+	border: none;
+	background: #FFFFFF;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	font-size: 1rem;
+	line-height: 1.1875rem;
+	font-family: Roboto-Regular;
+}
+
+.taskEdit .deadLineEditBox .deadLineText-Time:hover{
+	border: 1px solid #18e1af;
+}
+
+/*編輯:上傳檔案的介面*/
+.taskEdit .fileEditBox{
+	padding-top: 1.375rem;
+	padding-left: 4.5rem;
+	padding-right: 4.5rem;
+}
+
+.taskEdit .fileEditBox .taskFileMark-Edit{
+	float: left;
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+	color: #000000;
+}
+
+.taskEdit .fileEditBox .taskFileTitle-Edit{
+	float: left;
+	font-size: 1.25rem;
+	color: #000000;
+	margin-left: 0.6875rem;
+	font-family: Roboto-Medium;
+	font-weight: bold;
+	line-height: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.taskEdit .fileEditBox .updateFileBox{
+	margin-left: 1.4375rem;
+	float: left;
+}
+
+.taskEdit .fileEditBox .updateFileBox .updateFileName{
+	font-size: 1rem;
+	line-height: 1.1875rem;
+	color: #000000;
+	font-family: Roboto-Regular;
+}
+
+.taskEdit .fileEditBox .updateFileBox .updateFileTime{
+	font-size: 1rem;
+	line-height: 1.1875rem;
+	color: #757575;
+	font-family: Roboto-Regular;
+}
+
+.taskEdit .fileEditBox .addFileButton{
+	float: left;
+	width: 2rem;
+	height: 2rem;
+	background: #C8C8C8;
+	color: #FFFFFF;
+	font-size: 1.375rem;
+	font-weight: bold;
+	margin-top: 0.1875rem;
+	margin-left: 1.4375rem;
+	padding-top: 0.1875rem;
+	padding-left: 0.25rem;
+	cursor: pointer;
+}
+
+/*編輯:任務詳細說明的介面*/
+.taskEdit .commentEditBox{
+	padding-top: 1.5rem;
+	padding-left: 4.5rem;
+}
+
+.taskEdit .commentEditBox .taskCommentMark-Edit{
+	float: left;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	color: #000000;
+}
+
+.taskEdit .commentEditBox .taskCommentTitle-Edit{
+	float: left;
+	font-size: 1.25rem;
+	color: #000000;
+	margin-left: 0.4rem;
+	font-family: Roboto-Medium;
+	font-weight: bold;
+	line-height: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.taskEdit .commentEditBox .commentTextarea{
+	margin-left: 1.4375rem;
+	width: 81.2043%;
+	height: 120px;
+	border: none;
+	resize: none;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	color: #000000;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-family: Roboto-Regular;
+
+}
+.taskEdit .commentEditBox .commentTextarea:hover{
+	border: 1px solid #18e1af;
+}
+
+.taskEdit .commentEditBox .commentTextarea::placeholder{
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-family: Roboto-Regular;
+	color: #C8C8C8;
+}
+
+/*編輯:取消及儲存的按鈕*/
+.taskEdit .taskEditButtonBox{
+	margin-top: 1.5rem;
+}
+
+.taskEdit .taskEditButtonBox .cancelButton{
+	display: block;
+	float: left;
+	width: 50%;
+	background: #FFFFFF;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 6.70625rem;
+	color: #D0021B;
+	border-radius: 0px 0px 0px 5px;
+	cursor: pointer;
+}
+
+.taskEdit .taskEditButtonBox .cancelButton:hover{
+	background: #FFAEC9;
+}
+
+.taskEdit .taskEditButtonBox .cancelButton i{
+	float: left;
+	font-size: 1.5rem;
+	line-height: 1.75rem;
+}
+
+.taskEdit .taskEditButtonBox .cancelButton p{
+	float: left;
+	margin-left: 0.86875rem;
+	font-family: Roboto-Regular;
+	font-size: 1.5rem;
+	line-height: 1.75rem;
+}
+
+.taskEdit .taskEditButtonBox .saveButton{
+	display: block;
+	float: left;
+	width: 50%;
+	background: #4A90E2;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 6.70625rem;
+	color: #FFFFFF;
+	border-radius: 0px 0px 5px 0px;
+	cursor: pointer;
+}
+
+.taskEdit .taskEditButtonBox .saveButton:hover{
+	background: #0B6BE0;
+}
+
+.taskEdit .taskEditButtonBox .saveButton i{
+	float: left;
+	font-size: 1.5rem;
+	line-height: 1.75rem;
+}
+
+.taskEdit .taskEditButtonBox .saveButton p{
+	float: left;
+	margin-left: 1rem;
+	font-family: Roboto-Regular;
+	font-size: 1.5rem;
+	line-height: 1.75rem;
+}
+
+/***********************************/
+
+/*【任務格狀態】*/
+
+/*任務尚未被設為完成時*/
+.taskBoxNotCompleted .taskPanel .taskContent{
+	display: block;
+}
+
+/*任務格置頂時*/
+.taskBoxSticky .taskPanel{
 	background: #FFF2DC;
 }
 
-/*已完成任務格*/
-.completed{
-	height: 4.75rem;
+/*主要任務格進入編輯狀態*/
+.taskBoxEditing .taskPanel{
+	border-radius: 5px 5px 0px 0px;
+	box-shadow: 0px 3px 5px #d6d6d6;
+}
+
+.taskBoxEditing .taskPanel .taskContent{
+	display: none;
+}
+
+/*任務格被設為任務完成時*/
+.taskBoxCompleted .taskPanel .taskTitle{
+	text-decoration: line-through;
+	color: #9B9B9B;
+}
+
+.taskBoxCompleted .taskPanel .completedSetting{
+	background-image: url(../img/checkbox-true.png);
+}
+
+.taskBoxCompleted .taskPanel .taskContent{
+	display: none;
 }
 
 
@@ -174,7 +617,7 @@ img{
 
 /*顯示任務數*/
 .footer{
-	max-width: 60.5%;
+	width: 60.5%;
 	margin: 0 auto;
 }
 

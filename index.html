@@ -68,24 +68,85 @@
 			</div>
 	
 			<!--新增任務區塊-->
-			<div class="addTaskBox">
-								
+			<!--<div class="addTaskBox"></div>-->
+			
 
-			</div>
+			<!--任務列表-->
+			<ul id="taskList">
+				<!--第１個任務-->
+				<li id="task1" class="oneTask taskBoxNotCompleted">
+					<div class="taskPanel">
+						<!--任務面板-->
+						<input id="task1-CompletedCheckBox" type="checkbox" style="display: none;">
+						<label for="task1-CompletedCheckBox" class="completedSetting" title="任務完成/未完成"></label>	
+						<h3 class="taskTitle" >Type Something Here...</h3>
+						<input type="text" class="titleEdit" value="Type Something Here..." style="display: none;">
+						<div class="settingButtonBox">
+							<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-StickyCheckBox"><i class="stickySetting far fa-star" disabled="disabled" title="置頂/一般排序"></i></label>
+							<input id="task1-EditingCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-EditingCheckBox"><i class="editSetting fas fa-pencil-alt" disabled="disabled" title="編輯內容/結束編輯"></i></label>
+						</div>
+						<div class="clearfix"></div>						
+						<!--任務內容-->
+						<div class="taskContent">
+							<div class="deadLineBox" title="Deadline: 2018/12/31">
+								<i class="deadLineMark far fa-calendar-alt"></i>
+								<p class="deadLineContent">2018/12/31</p>
+							</div>
+							<i class="taskFile far fa-file" title="File: 20180514.zip（uploaded yesterday）"></i>
+							<i class="taskComment far fa-comment-dots" title="Comment: meet him at Lorence Cafe"></i>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<!--任務內容編輯視窗-->
+					<div class="taskEdit" style="display: none;">
+						<div class="deadLineEditBox">
+							<i class="deadLineMark-Edit far fa-calendar-alt"></i>
+							<h3 class="deadLineTitle-Edit">Deadline</h3>
+							<div class="clearfix"></div>
+							<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd" value="2018-12-31">
+							<input type="time" class="deadLineText-Time" placeholder="hh:mm">
+							<div class="clearfix"></div>
+						</div>
+						<div class="fileEditBox">
+							<i class="taskFileMark-Edit far fa-file"></i>
+							<h3 class="taskFileTitle-Edit">File</h3>
+							<div class="clearfix"></div>
+							<ul class="updateFileBox">
+								<li class="updateFileName">20180514.zip</li>
+								<li class="updateFileTime">uploaded yesterday</li>
+							</ul>
+							<div class="addFileButton">＋</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="commentEditBox">
+							<i class="taskCommentMark-Edit far fa-comment-dots"></i>
+							<h3 class="taskCommentTitle-Edit">Comment</h3>
+							<div class="clearfix"></div>
+							<textarea class="commentTextarea" placeholder="Type your memo here…">meet him at Lorence Cafe</textarea>
+						</div>
+						<ul class="taskEditButtonBox">
+							<li class="cancelButton">
+								<i class="fas fa-times"></i>
+								<p>Cancel</p>
+							</li>
+							<li class="saveButton">
+								<i class="fas fa-plus"></i>
+								<p>Save</p>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</li>
 
-			<!--既有任務區塊-->
-			<div class="taskBox sticky">
-				<!--任務標題-->
+				<!--第２個任務-->
+				<li class="oneTask taskBoxNotCompleted"><div class="taskPanel"></div></li>
+				<li class="oneTask taskBoxNotCompleted"><div class="taskPanel"></div></li>
+				<li class="oneTask taskBoxNotCompleted"><div class="taskPanel"></div></li>
+				<li class="oneTask taskBoxCompleted"><div class="taskPanel"></div></li>
 
-				<!--任務內容(簡易版)-->
-
-				<!--任務內容(完整版)-->
-
-			</div>
-			<div class="taskBox sticky"></div>
-			<div class="taskBox normal"></div>
-			<div class="taskBox normal"></div>
-			<div class="taskBox completed"></div>
+			</ul>				
 
 		</div>
 		
