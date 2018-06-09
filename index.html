@@ -125,29 +125,31 @@
 			<!--=============================================-->
 			<!--任務列表-->
 			<ul id="taskList">
+				<!--=========-->
 				<!--第１個任務-->
-				<li id="task1" class="oneTask taskBoxNotCompleted">
+				<!--=========-->
+				<li id="task1" class="oneTask taskBoxNotCompleted taskBoxSticky">
 					<div class="taskPanel">
 						<!--任務面板-->
 						<input id="task1-CompletedCheckBox" type="checkbox" style="display: none;">
 						<label for="task1-CompletedCheckBox" class="completedSetting" title="任務完成/未完成"></label>	
-						<h3 class="taskTitle" >Type Something Here...</h3>
-						<input type="text" class="titleEdit" placeholder="Type Something Here..." value="Type Something Here..." style="display: none;">
+						<h3 class="taskTitle" >製作The F2E的Week-1作品</h3>
+						<input type="text" class="titleEdit" placeholder="Type Something Here..." value="製作TheF2E的Week-1作品" style="display: none;">
 						<div class="settingButtonBox">
 							<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
-							<label for="task1-StickyCheckBox"><i class="stickySetting far fa-star" disabled="disabled" title="置頂/一般排序"></i></label>
+							<label for="task1-StickyCheckBox"><i class="stickySetting fas fa-star" disabled="disabled" title="置頂/一般排序"></i></label>
 							<input id="task1-EditingCheckBox" type="checkbox" style="display: none;">
 							<label for="task1-EditingCheckBox"><i class="editSetting fas fa-pencil-alt" disabled="disabled" title="編輯內容/結束編輯"></i></label>
 						</div>
 						<div class="clearfix"></div>						
 						<!--任務內容-->
 						<div class="taskContent">
-							<div class="deadLineBox" title="Deadline: 2018/12/31">
+							<div class="deadLineBox" title="Deadline: 2018/06/10">
 								<i class="deadLineMark far fa-calendar-alt"></i>
-								<p class="deadLineContent">2018/12/31</p>
+								<p class="deadLineContent">2018/06/10</p>
 							</div>
-							<i class="taskFile far fa-file" title="File: 20180514.zip（uploaded yesterday）"></i>
-							<i class="taskComment far fa-comment-dots" title="Comment: meet him at Lorence Cafe"></i>
+							<i class="taskFile far fa-file" title="File: The F2E-Week-1設計稿.zip（uploaded yesterday）"></i>
+							<i class="taskComment far fa-comment-dots" title="Comment: 做一個todolist網站"></i>
 							<div class="clearfix"></div>
 						</div>
 					</div>
@@ -157,7 +159,7 @@
 							<i class="deadLineMark-Edit far fa-calendar-alt"></i>
 							<h3 class="deadLineTitle-Edit">Deadline</h3>
 							<div class="clearfix"></div>
-							<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd" value="2018-12-31">
+							<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd" value="2018-06-10">
 							<input type="time" class="deadLineText-Time" placeholder="hh:mm">
 							<div class="clearfix"></div>
 						</div>
@@ -166,7 +168,7 @@
 							<h3 class="taskFileTitle-Edit">File</h3>
 							<div class="clearfix"></div>
 							<ul class="updateFileBox">
-								<li class="updateFileName">20180514.zip</li>
+								<li class="updateFileName">The F2E-Week-1設計稿.zip</li>
 								<li class="updateFileTime">uploaded yesterday</li>
 							</ul>
 							<div class="addFileButton">＋</div>
@@ -176,7 +178,76 @@
 							<i class="taskCommentMark-Edit far fa-comment-dots"></i>
 							<h3 class="taskCommentTitle-Edit">Comment</h3>
 							<div class="clearfix"></div>
-							<textarea class="commentTextarea" placeholder="Type your memo here…">meet him at Lorence Cafe</textarea>
+							<textarea class="commentTextarea" placeholder="Type your memo here…">做一個todolist網站</textarea>
+						</div>
+						<ul class="taskEditButtonBox">
+							<li class="cancelButton">
+								<i class="fas fa-times"></i>
+								<p>Cancel</p>
+							</li>
+							<li class="saveButton">
+								<i class="fas fa-plus"></i>
+								<p>Save</p>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</li>
+				
+
+				<!--=========-->
+				<!--第２個任務-->
+				<!--=========-->
+				<li id="task2" class="oneTask taskBoxNotCompleted taskBoxSticky">
+					<div class="taskPanel">
+						<!--任務面板-->
+						<input id="task1-CompletedCheckBox" type="checkbox" style="display: none;">
+						<label for="task1-CompletedCheckBox" class="completedSetting" title="任務完成/未完成"></label>	
+						<h3 class="taskTitle" >task置頂功能&拖曳排序</h3>
+						<input type="text" class="titleEdit" placeholder="Type Something Here..." value="task置頂功能&拖曳排序" style="display: none;">
+						<div class="settingButtonBox">
+							<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-StickyCheckBox"><i class="stickySetting fas fa-star" disabled="disabled" title="置頂/一般排序"></i></label>
+							<input id="task1-EditingCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-EditingCheckBox"><i class="editSetting fas fa-pencil-alt" disabled="disabled" title="編輯內容/結束編輯"></i></label>
+						</div>
+						<div class="clearfix"></div>						
+						<!--任務內容-->
+						<div class="taskContent">
+							<div class="deadLineBox" title="Deadline: 2018/06/10">
+								<i class="deadLineMark far fa-calendar-alt"></i>
+								<p class="deadLineContent">2018/06/10</p>
+							</div>
+							<i class="taskComment far fa-comment-dots" title="Comment: 目前還不會做..."></i>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<!--任務內容編輯視窗-->
+					<div class="taskEdit" style="display: none;">
+						<div class="deadLineEditBox">
+							<i class="deadLineMark-Edit far fa-calendar-alt"></i>
+							<h3 class="deadLineTitle-Edit">Deadline</h3>
+							<div class="clearfix"></div>
+							<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd" value="2018-06-10">
+							<input type="time" class="deadLineText-Time" placeholder="hh:mm">
+							<div class="clearfix"></div>
+						</div>
+						<div class="fileEditBox">
+							<i class="taskFileMark-Edit far fa-file"></i>
+							<h3 class="taskFileTitle-Edit">File</h3>
+							<div class="clearfix"></div>
+							<ul class="updateFileBox">
+								<li class="updateFileName"></li>
+								<li class="updateFileTime"></li>
+							</ul>
+							<div class="addFileButton">＋</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="commentEditBox">
+							<i class="taskCommentMark-Edit far fa-comment-dots"></i>
+							<h3 class="taskCommentTitle-Edit">Comment</h3>
+							<div class="clearfix"></div>
+							<textarea class="commentTextarea" placeholder="Type your memo here…">目前還不會做...</textarea>
 						</div>
 						<ul class="taskEditButtonBox">
 							<li class="cancelButton">
@@ -192,11 +263,209 @@
 					</div>
 				</li>
 
-				<!--第２個任務-->
-				<li class="oneTask taskBoxNotCompleted"><div class="taskPanel"></div></li>
-				<li class="oneTask taskBoxNotCompleted"><div class="taskPanel"></div></li>
-				<li class="oneTask taskBoxNotCompleted"><div class="taskPanel"></div></li>
-				<li class="oneTask taskBoxCompleted"><div class="taskPanel"></div></li>
+				<!--=========-->
+				<!--第３個任務-->
+				<!--=========-->
+				<li id="task3" class="oneTask taskBoxNotCompleted">
+					<div class="taskPanel">
+						<!--任務面板-->
+						<input id="task1-CompletedCheckBox" type="checkbox" style="display: none;">
+						<label for="task1-CompletedCheckBox" class="completedSetting" title="任務完成/未完成"></label>	
+						<h3 class="taskTitle" >讀資料去新增&更新task內容</h3>
+						<input type="text" class="titleEdit" placeholder="Type Something Here..." value="讀資料去新增&更新task內容" style="display: none;">
+						<div class="settingButtonBox">
+							<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-StickyCheckBox"><i class="stickySetting far fa-star" disabled="disabled" title="置頂/一般排序"></i></label>
+							<input id="task1-EditingCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-EditingCheckBox"><i class="editSetting fas fa-pencil-alt" disabled="disabled" title="編輯內容/結束編輯"></i></label>
+						</div>
+						<div class="clearfix"></div>						
+						<!--任務內容-->
+						<div class="taskContent">
+							<div class="deadLineBox" title="Deadline: 2018/06/10">
+								<i class="deadLineMark far fa-calendar-alt"></i>
+								<p class="deadLineContent">2018/06/10</p>
+							</div>
+							<i class="taskComment far fa-comment-dots" title="Comment: 看起來應該是沒時間做了XD"></i>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<!--任務內容編輯視窗-->
+					<div class="taskEdit" style="display: none;">
+						<div class="deadLineEditBox">
+							<i class="deadLineMark-Edit far fa-calendar-alt"></i>
+							<h3 class="deadLineTitle-Edit">Deadline</h3>
+							<div class="clearfix"></div>
+							<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd" value="2018-06-10">
+							<input type="time" class="deadLineText-Time" placeholder="hh:mm">
+							<div class="clearfix"></div>
+						</div>
+						<div class="fileEditBox">
+							<i class="taskFileMark-Edit far fa-file"></i>
+							<h3 class="taskFileTitle-Edit">File</h3>
+							<div class="clearfix"></div>
+							<ul class="updateFileBox">
+								<li class="updateFileName"></li>
+								<li class="updateFileTime"></li>
+							</ul>
+							<div class="addFileButton">＋</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="commentEditBox">
+							<i class="taskCommentMark-Edit far fa-comment-dots"></i>
+							<h3 class="taskCommentTitle-Edit">Comment</h3>
+							<div class="clearfix"></div>
+							<textarea class="commentTextarea" placeholder="Type your memo here…">看起來應該是沒時間做了XD</textarea>
+						</div>
+						<ul class="taskEditButtonBox">
+							<li class="cancelButton">
+								<i class="fas fa-times"></i>
+								<p>Cancel</p>
+							</li>
+							<li class="saveButton">
+								<i class="fas fa-plus"></i>
+								<p>Save</p>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</li>
+
+				<!--=========-->
+				<!--第４個任務-->
+				<!--=========-->
+				<li id="task4" class="oneTask taskBoxNotCompleted">
+					<div class="taskPanel">
+						<!--任務面板-->
+						<input id="task1-CompletedCheckBox" type="checkbox" style="display: none;">
+						<label for="task1-CompletedCheckBox" class="completedSetting" title="任務完成/未完成"></label>	
+						<h3 class="taskTitle" >存取資料庫...</h3>
+						<input type="text" class="titleEdit" placeholder="Type Something Here..." value="存取資料庫..." style="display: none;">
+						<div class="settingButtonBox">
+							<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-StickyCheckBox"><i class="stickySetting far fa-star" disabled="disabled" title="置頂/一般排序"></i></label>
+							<input id="task1-EditingCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-EditingCheckBox"><i class="editSetting fas fa-pencil-alt" disabled="disabled" title="編輯內容/結束編輯"></i></label>
+						</div>
+						<div class="clearfix"></div>						
+						<!--任務內容-->
+						<div class="taskContent">
+							<div class="deadLineBox" title="Deadline: 2018/06/10">
+								<i class="deadLineMark far fa-calendar-alt"></i>
+								<p class="deadLineContent">2018/06/10</p>
+							</div>
+							<i class="taskComment far fa-comment-dots" title="Comment: ◢▆▅▄▃_崩╰(〒皿〒)╯潰_▃▄▅▆◣"></i>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<!--任務內容編輯視窗-->
+					<div class="taskEdit" style="display: none;">
+						<div class="deadLineEditBox">
+							<i class="deadLineMark-Edit far fa-calendar-alt"></i>
+							<h3 class="deadLineTitle-Edit">Deadline</h3>
+							<div class="clearfix"></div>
+							<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd" value="2018-06-10">
+							<input type="time" class="deadLineText-Time" placeholder="hh:mm">
+							<div class="clearfix"></div>
+						</div>
+						<div class="fileEditBox">
+							<i class="taskFileMark-Edit far fa-file"></i>
+							<h3 class="taskFileTitle-Edit">File</h3>
+							<div class="clearfix"></div>
+							<ul class="updateFileBox">
+								<li class="updateFileName"></li>
+								<li class="updateFileTime"></li>
+							</ul>
+							<div class="addFileButton">＋</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="commentEditBox">
+							<i class="taskCommentMark-Edit far fa-comment-dots"></i>
+							<h3 class="taskCommentTitle-Edit">Comment</h3>
+							<div class="clearfix"></div>
+							<textarea class="commentTextarea" placeholder="Type your memo here…">◢▆▅▄▃_崩╰(〒皿〒)╯潰_▃▄▅▆◣</textarea>
+						</div>
+						<ul class="taskEditButtonBox">
+							<li class="cancelButton">
+								<i class="fas fa-times"></i>
+								<p>Cancel</p>
+							</li>
+							<li class="saveButton">
+								<i class="fas fa-plus"></i>
+								<p>Save</p>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</li>
+				
+				<!--=========-->
+				<!--第５個任務-->
+				<!--=========-->
+				<li id="task5" class="oneTask taskBoxCompleted">
+					<div class="taskPanel">
+						<!--任務面板-->
+						<input id="task1-CompletedCheckBox" type="checkbox" style="display: none;">
+						<label for="task1-CompletedCheckBox" class="completedSetting" title="任務完成/未完成"></label>	
+						<h3 class="taskTitle" >基本的CSS...（不含RWD）</h3>
+						<input type="text" class="titleEdit" placeholder="Type Something Here..." value="基本的CSS...（不含RWD）" style="display: none;">
+						<div class="settingButtonBox">
+							<input id="task1-StickyCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-StickyCheckBox"><i class="stickySetting far fa-star stickySettingDisable" title="置頂/一般排序"></i></label>
+							<input id="task1-EditingCheckBox" type="checkbox" style="display: none;">
+							<label for="task1-EditingCheckBox"><i class="editSetting fas fa-pencil-alt editSettingDisable" title="編輯內容/結束編輯"></i></label>
+						</div>
+						<div class="clearfix"></div>						
+						<!--任務內容-->
+						<div class="taskContent">
+							<div class="deadLineBox" title="Deadline: 2018/06/09">
+								<i class="deadLineMark far fa-calendar-alt"></i>
+								<p class="deadLineContent">2018/06/09</p>
+							</div>
+							<i class="taskComment far fa-comment-dots" title="Comment: Github頁面 https://github.com/zshao1031/TheF2E-Week-1"></i>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<!--任務內容編輯視窗-->
+					<div class="taskEdit" style="display: none;">
+						<div class="deadLineEditBox">
+							<i class="deadLineMark-Edit far fa-calendar-alt"></i>
+							<h3 class="deadLineTitle-Edit">Deadline</h3>
+							<div class="clearfix"></div>
+							<input type="date" class="deadLineText-Date" placeholder="yyyy/mm/dd" value="2018-06-09">
+							<input type="time" class="deadLineText-Time" placeholder="hh:mm">
+							<div class="clearfix"></div>
+						</div>
+						<div class="fileEditBox">
+							<i class="taskFileMark-Edit far fa-file"></i>
+							<h3 class="taskFileTitle-Edit">File</h3>
+							<div class="clearfix"></div>
+							<ul class="updateFileBox">
+								<li class="updateFileName"></li>
+								<li class="updateFileTime"></li>
+							</ul>
+							<div class="addFileButton">＋</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="commentEditBox">
+							<i class="taskCommentMark-Edit far fa-comment-dots"></i>
+							<h3 class="taskCommentTitle-Edit">Comment</h3>
+							<div class="clearfix"></div>
+							<textarea class="commentTextarea" placeholder="Type your memo here…">Github頁面 https://github.com/zshao1031/TheF2E-Week-1</textarea>
+						</div>
+						<ul class="taskEditButtonBox">
+							<li class="cancelButton">
+								<i class="fas fa-times"></i>
+								<p>Cancel</p>
+							</li>
+							<li class="saveButton">
+								<i class="fas fa-plus"></i>
+								<p>Save</p>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+					</div>
+				</li>
 
 			</ul>				
 

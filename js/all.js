@@ -1,28 +1,28 @@
 $(document).ready(function() {
 
 	var slideTime = 200;
-	
+	var notCompletedTaskNum = 4;
+	var completedTaskNum = 1;
+	var thisTaskID;
+
 	//*****************************************************
 	//按下主選單按鈕時的反應
 	$('#myTasksBtn').click(function(event) {
 		changeUsingPage('#myTasksBtn');
-		$('.oneTask.taskBoxNotCompleted').slideDown(slideTime);
-		$('.oneTask.taskBoxCompleted').slideDown(slideTime);
-		$('.footer p').text('4 tasks left');		
+		renewTaskShow();
+		renewTaskNum();
 	});
 
 	$('#inProgressBtn').click(function(event) {
 		changeUsingPage('#inProgressBtn');
-		$('.oneTask.taskBoxNotCompleted').slideDown(slideTime);
-		$('.oneTask.taskBoxCompleted').slideUp(slideTime);
-		$('.footer p').text('4 tasks left');
+		renewTaskShow();
+		renewTaskNum();
 	});
 
 	$('#completedBtn').click(function(event) {
 		changeUsingPage('#completedBtn');
-		$('.oneTask.taskBoxNotCompleted').slideUp(slideTime);
-		$('.oneTask.taskBoxCompleted').slideDown(slideTime);
-		$('.footer p').text('1 task completed');
+		renewTaskShow();
+		renewTaskNum();
 	});
 	
 	//切頁時，主選單按紐樣式改變用
@@ -40,6 +40,31 @@ $(document).ready(function() {
 		$(usingPage).removeClass('doesNotUsingPage');
 		$(usingPage).addClass('usingPage');	
 	}
+
+	//更新footer中顯示任務數量的數字
+	function renewTaskNum(){
+		if($('#completedBtn').is('.usingPage')){
+			$('.footer p').text(completedTaskNum + ' task completed');
+		} else {
+			$('.footer p').text(notCompletedTaskNum + ' tasks left');
+		}
+	}
+
+	function renewTaskShow(){
+		if($('#myTasksBtn').is('.usingPage')){
+			$('.oneTask.taskBoxNotCompleted').slideDown(slideTime);
+			$('.oneTask.taskBoxCompleted').slideDown(slideTime);
+		}
+		if($('#inProgressBtn').is('.usingPage')){
+			$('.oneTask.taskBoxNotCompleted').slideDown(slideTime);
+			$('.oneTask.taskBoxCompleted').slideUp(slideTime);
+		}
+		if($('#completedBtn').is('.usingPage')){
+			$('.oneTask.taskBoxNotCompleted').slideUp(slideTime);
+			$('.oneTask.taskBoxCompleted').slideDown(slideTime);
+		}
+	}
+
 	//*****************************************************
 	//按下「新增任務按鈕」
 	$('.addTaskBtn').click(function(event) {
@@ -73,17 +98,14 @@ $(document).ready(function() {
 	}
 
 	//*****************************************************
+	
+	
 	//按下「完成任務按鈕」
-	$('#task1 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task1');});
-	$('#task2 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task2');});
-	$('#task3 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task3');});
-	$('#task4 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task4');});
-	$('#task5 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task5');});
-	$('#task6 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task6');});
-	$('#task7 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task7');});
-	$('#task8 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task8');});
-	$('#task9 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task9');});
-	$('#task10 .taskPanel .completedSetting').click(function(event) {completedTheTask('#task10');});
+	$('#taskList .completedSetting').click(function(event) {
+		thisTaskID = "#" + $(this).parent().parent('li').attr('id');
+		completedTheTask(thisTaskID);
+	});
+	
 
 	//按下「完成任務按鈕」
 	function completedTheTask(thisTask) {
@@ -114,21 +136,37 @@ $(document).ready(function() {
 		} else {
 			$(thisTask + ' .taskPanel .editSetting').attr('disabled', 'disabled');
 		}
+
+		//更新任務完成or未完成數量計算
+		if($(thisTask).is('.taskBoxCompleted')){
+			completedTaskNum++;
+			notCompletedTaskNum--;
+		} else if($(thisTask).is('.taskBoxNotCompleted')){
+			completedTaskNum--;
+			notCompletedTaskNum++;
+		}
+
+		//更新任務完成or未完成數量顯示
+		if($('#completedBtn').is('.usingPage')){
+			$('.footer p').text(completedTaskNum + ' task completed');
+		} else {
+			$('.footer p').text(notCompletedTaskNum + ' tasks left');
+		}
+
+		//更新footer中顯示任務數量的數字
+		renewTaskNum();
+
+		//更新改變完成狀態的task隱藏或顯示
+		renewTaskShow();
 	}
 
 	//*****************************************************
 	//按下「切換置頂」按鈕
 	$('#addNewTask .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#addNewTask');});
-	$('#task1 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task1');});
-	$('#task2 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task2');});
-	$('#task3 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task3');});
-	$('#task4 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task4');});
-	$('#task5 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task5');});
-	$('#task6 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task6');});
-	$('#task7 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task7');});
-	$('#task8 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task8');});
-	$('#task9 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task9');});
-	$('#task10 .taskPanel .stickySetting').click(function(event) {settingTaskSticky('#task10');});
+	$('#taskList .stickySetting').click(function(event) {
+		thisTaskID = "#" + $(this).parent().parent().parent().parent('li').attr('id');
+		settingTaskSticky(thisTaskID);
+	});
 
 	//按下「切換置頂」按鈕
 	function settingTaskSticky(thisTask) {
@@ -146,16 +184,10 @@ $(document).ready(function() {
 
 	//*****************************************************
 	//按下「切換編輯介面」按鈕
-	$('#task1 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task1');});
-	$('#task2 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task2');});
-	$('#task3 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task3');});
-	$('#task4 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task4');});
-	$('#task5 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task5');});
-	$('#task6 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task6');});
-	$('#task7 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task7');});
-	$('#task8 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task8');});
-	$('#task9 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task9');});
-	$('#task10 .taskPanel .editSetting').click(function(event) {settingTaskEdit('#task10');});
+	$('#taskList .editSetting').click(function(event) {
+		thisTaskID = "#" + $(this).parent().parent().parent().parent('li').attr('id');
+		settingTaskEdit(thisTaskID);
+	});
 
 	//按下「切換編輯介面」按鈕
 	function settingTaskEdit(thisTask) {
@@ -175,16 +207,10 @@ $(document).ready(function() {
 
 	//*****************************************************
 	//按下編輯介面的「cancel」按鈕
-	$('#task1 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task1');});
-	$('#task2 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task2');});
-	$('#task3 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task3');});
-	$('#task4 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task4');});
-	$('#task5 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task5');});
-	$('#task6 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task6');});
-	$('#task7 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task7');});
-	$('#task8 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task8');});
-	$('#task9 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task9');});
-	$('#task10 .taskEdit .taskEditButtonBox .cancelButton').click(function(event) {usingEditCancel('#task10');});
+	$('#taskList .cancelButton').click(function(event) {
+		thisTaskID = "#" + $(this).parent().parent().parent('li').attr('id');
+		usingEditCancel(thisTaskID);
+	});
 
 	//按下編輯介面的「cancel」按鈕
 	function usingEditCancel(thisTask) {
@@ -200,17 +226,10 @@ $(document).ready(function() {
 
 	//*****************************************************
 	//按下編輯介面的「save」按鈕
-	$('#task1 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task1');});
-	$('#task2 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task2');});
-	$('#task3 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task3');});
-	$('#task4 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task4');});
-	$('#task5 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task5');});
-	$('#task6 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task6');});
-	$('#task7 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task7');});
-	$('#task8 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task8');});
-	$('#task9 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task9');});
-	$('#task10 .taskEdit .taskEditButtonBox .saveButton').click(function(event) {usingEditSave('#task10');});
-
+	$('#taskList .saveButton').click(function(event) {
+		thisTaskID = "#" + $(this).parent().parent().parent('li').attr('id');
+		usingEditCancel(thisTaskID);
+	});
 
 	//按下編輯介面的「save」按鈕
 	function usingEditSave(thisTask) {
@@ -231,3 +250,4 @@ $(document).ready(function() {
 
 
 });
+
