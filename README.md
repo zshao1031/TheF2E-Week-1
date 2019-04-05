@@ -5,7 +5,8 @@
 ### 頁面展示：<https://zshao1031.github.io/TheF2E-Week-1/>
 ### 未實作功能：增加／刪除資料、星號置頂
 
-![預覽縮圖](img/thumbnail.jpg)
+### 預覽圖片：
+![預覽圖片](img/thumbnail.jpg)
 
 ***
 ## 【其他說明】
